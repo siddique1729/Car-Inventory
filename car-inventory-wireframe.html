@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Inventory Wireframe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .wireframe-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        
+        .page-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .wireframe {
+            border: 2px solid #333;
+            background: white;
+            padding: 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .page-title {
+            background: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .page-content {
+            padding: 15px;
+        }
+        
+        /* Top Navigation Bar */
+        .top-nav {
+            background: #555;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .logo {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .nav-items {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-btn {
+            background: #777;
+            padding: 5px 12px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        
+        /* Sidebar */
+        .content-layout {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .sidebar {
+            border: 2px dashed #999;
+            padding: 10px;
+            width: 200px;
+            background: #f9f9f9;
+        }
+        
+        .sidebar-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 12px;
+        }
+        
+        .sidebar-item {
+            background: #e0e0e0;
+            padding: 6px;
+            margin-bottom: 6px;
+            font-size: 11px;
+            border-radius: 2px;
+        }
+        
+        .main-content {
+            flex: 1;
+        }
+        
+        /* Buttons */
+        .btn {
+            background: #ddd;
+            border: 1px solid #999;
+            padding: 8px 15px;
+            margin: 5px;
+            display: inline-block;
+            font-size: 12px;
+            border-radius: 3px;
+        }
+        
+        .btn-primary {
+            background: #4CAF50;
+            color: white;
+            border-color: #45a049;
+        }
+        
+        .btn-danger {
+            background: #f44336;
+            color: white;
+            border-color: #da190b;
+        }
+        
+        .btn-secondary {
+            background: #888;
+            color: white;
+            border-color: #666;
+        }
+        
+        /* Form elements */
+        .form-group {
+            margin-bottom: 12px;
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 4px;
+            color: #555;
+        }
+        
+        .form-input {
+            width: 100%;
+            height: 25px;
+            background: #f5f5f5;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+        }
+        
+        /* Car cards */
+        .car-card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            background: #fafafa;
+            font-size: 11px;
+        }
+        
+        .car-card-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        /* Details view */
+        .details-section {
+            background: #f9f9f9;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            font-size: 11px;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+        
+        .detail-label {
+            font-weight: bold;
+            color: #555;
+        }
+        
+        /* Modal/Confirmation */
+        .modal-content {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            padding: 15px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .modal-text {
+            font-size: 13px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        
+        /* Settings sections */
+        .settings-section {
+            border-bottom: 1px solid #ddd;
+            padding: 12px 0;
+            font-size: 12px;
+        }
+        
+        .settings-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .action-buttons {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="wireframe-container">
+        <h1>Car Inventory Application - Wireframe</h1>
+        
+        <div class="page-grid">
+            <!-- HOME / INVENTORY PAGE -->
+            <div class="wireframe">
+                <div class="page-title">HOME / INVENTORY</div>
+                <div class="page-content">
+                    <div class="top-nav">
+                        <div class="logo">[LOGO]</div>
+                        <div class="nav-items">
+                            <div class="nav-btn">Search</div>
+                            <div class="nav-btn">Settings</div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-layout">
+                        <div class="sidebar">
+                            <div class="sidebar-title">SEARCH & FILTERS</div>
+                            <div class="sidebar-item">🔍 Search keyword</div>
+                            <div class="sidebar-item">📅 Filter by year</div>
+                            <div class="sidebar-item">🚗 Filter by make</div>
+                            <div class="sidebar-item">📋 Filter by model</div>
+                            <div class="sidebar-item">⬆️ Sort options</div>
+                        </div>
+                        
+                        <div class="main-content">
+                            <div style="margin-bottom: 15px;">
+                                <span class="btn btn-primary">+ Add Car</span>
+                                <span class="btn">Import CSV</span>
+                                <span class="btn">Export CSV</span>
+                            </div>
+                            
+                            <div class="car-card">
+                                <div class="car-card-title">2019 Honda Civic</div>
+                                <div>Owner: Bob | ID: car3242</div>
+                                <div style="margin-top: 8px;">
+                                    <span class="btn" style="font-size: 10px;">View Details</span>
+                                </div>
+                            </div>
+                            
+                            <div class="car-card">
+                                <div class="car-card-title">2021 Toyota Camry</div>
+                                <div>Owner: Alice | ID: car4567</div>
+                                <div style="margin-top: 8px;">
+                                    <span class="btn" style="font-size: 10px;">View Details</span>
+                                </div>
+                            </div>
+                            
+                            <div class="car-card">
+                                <div class="car-card-title">2020 Ford F-150</div>
+                                <div>Owner: Charlie | ID: car8901</div>
+                                <div style="margin-top: 8px;">
+                                    <span class="btn" style="font-size: 10px;">View Details</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CAR DETAILS PAGE -->
+            <div class="wireframe">
+                <div class="page-title">CAR DETAILS</div>
+                <div class="page-content">
+                    <div class="top-nav">
+                        <div class="logo">[LOGO]</div>
+                        <div class="nav-items">
+                            <div class="nav-btn">Search</div>
+                            <div class="nav-btn">Settings</div>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-bottom: 15px; font-size: 16px;">2019 Honda Civic</h3>
+                    
+                    <div class="details-section">
+                        <div class="detail-row">
+                            <span class="detail-label">Car ID:</span>
+                            <span>car3242</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Owner:</span>
+                            <span>Bob</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Make:</span>
+                            <span>Honda</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Model:</span>
+                            <span>Civic</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Year:</span>
+                            <span>2019</span>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 20px;">
+                        <div style="background: #e0e0e0; padding: 40px; margin-bottom: 15px; border: 1px dashed #999;">
+                            [CAR IMAGE]
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <span class="btn btn-secondary">← Back</span>
+                        <span class="btn btn-primary">✏️ Edit</span>
+                        <span class="btn btn-danger">🗑️ Delete</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ADD CAR PAGE -->
+            <div class="wireframe">
+                <div class="page-title">ADD CAR</div>
+                <div class="page-content">
+                    <div class="top-nav">
+                        <div class="logo">[LOGO]</div>
+                        <div class="nav-items">
+                            <div class="nav-btn">Search</div>
+                            <div class="nav-btn">Settings</div>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-bottom: 15px; font-size: 16px;">Add New Car</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Owner Name *</label>
+                        <div class="form-input"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Make *</label>
+                        <div class="form-input"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Model *</label>
+                        <div class="form-input"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Year *</label>
+                        <div class="form-input"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Color</label>
+                        <div class="form-input"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Upload Image</label>
+                        <div class="btn" style="display: block; text-align: center; margin-top: 5px;">Choose File</div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <span class="btn btn-secondary">Cancel</span>
+                        <span class="btn btn-primary">💾 Save Car</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- EDIT CAR PAGE -->
+            <div class="wireframe">
+                <div class="page-title">EDIT CAR</div>
+                <div class="page-content">
+                    <div class="top-nav">
+                        <div class="logo">[LOGO]</div>
+                        <div class="nav-items">
+                            <div class="nav-btn">Search</div>
+                            <div class="nav-btn">Settings</div>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-bottom: 15px; font-size: 16px;">Edit Car Details</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Owner Name *</label>
+                        <div class="form-input" style="padding: 5px; display: flex; align-items: center;">Bob</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Make *</label>
+                        <div class="form-input" style="padding: 5px; display: flex; align-items: center;">Honda</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Model *</label>
+                        <div class="form-input" style="padding: 5px; display: flex; align-items: center;">Civic</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Year *</label>
+                        <div class="form-input" style="padding: 5px; display: flex; align-items: center;">2019</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Color</label>
+                        <div class="form-input" style="padding: 5px; display: flex; align-items: center;">Blue</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Update Image</label>
+                        <div class="btn" style="display: block; text-align: center; margin-top: 5px;">Choose New File</div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <span class="btn btn-secondary">Cancel</span>
+                        <span class="btn btn-primary">💾 Save Changes</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DELETE CONFIRMATION -->
+            <div class="wireframe">
+                <div class="page-title">DELETE CONFIRMATION</div>
+                <div class="page-content">
+                    <div class="top-nav">
+                        <div class="logo">[LOGO]</div>
+                        <div class="nav-items">
+                            <div class="nav-btn">Search</div>
+                            <div class="nav-btn">Settings</div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-content">
+                        <div class="modal-text">⚠️ Are you sure you want to delete this car?</div>
+                        <div style="font-size: 12px; margin-bottom: 15px;">
+                            <strong>2019 Honda Civic</strong><br>
+                            Owner: Bob<br>
+                            ID: car3242
+                        </div>
+                        <div style="color: #721c24; font-size: 11px; margin-bottom: 15px;">
+                            This action cannot be undone.
+                        </div>
+                        <div style="text-align: center;">
+                            <span class="btn btn-secondary">Cancel</span>
+                            <span class="btn btn-danger">✓ Confirm Delete</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SETTINGS PAGE -->
+            <div class="wireframe">
+                <div class="page-title">SETTINGS & ACCESSIBILITY</div>
+                <div class="page-content">
+                    <div class="top-nav">
+                        <div class="logo">[LOGO]</div>
+                        <div class="nav-items">
+                            <div class="nav-btn">Search</div>
+                            <div class="nav-btn">Settings</div>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-bottom: 15px; font-size: 16px;">Application Settings</h3>
+                    
+                    <div class="settings-section">
+                        <div class="settings-title">🎨 Theme</div>
+                        <div style="margin-left: 10px;">
+                            <label style="display: block; margin: 5px 0;">
+                                <input type="radio" checked> Light Mode
+                            </label>
+                            <label style="display: block; margin: 5px 0;">
+                                <input type="radio"> Dark Mode
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <div class="settings-title">🌐 Language</div>
+                        <div style="margin-left: 10px;">
+                            <select class="form-input" style="width: 200px; padding: 5px;">
+                                <option>English</option>
+                                <option>Spanish</option>
+                                <option>French</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <div class="settings-title">♿ Accessibility</div>
+                        <div style="margin-left: 10px;">
+                            <label style="display: block; margin: 5px 0;">
+                                <input type="checkbox"> Large Text
+                            </label>
+                            <label style="display: block; margin: 5px 0;">
+                                <input type="checkbox"> High Contrast
+                            </label>
+                            <label style="display: block; margin: 5px 0;">
+                                <input type="checkbox"> Screen Reader Support
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <div class="settings-title">📊 Data Import/Export</div>
+                        <div style="margin-left: 10px; margin-top: 10px;">
+                            <span class="btn btn-primary">📥 Import CSV</span>
+                            <span class="btn btn-primary">📤 Export CSV</span>
+                        </div>
+                    </div>
+                    
+                    <div class="action-buttons">
+                        <span class="btn btn-secondary">← Back to Home</span>
+                        <span class="btn btn-primary">💾 Save Settings</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
